@@ -10,11 +10,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
 app.use(cors());
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
-
-app.get('/', (req, res) => {
-    res.send('Index page');
-});
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(require('./routes'));
 

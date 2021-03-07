@@ -4,6 +4,13 @@ const multerConfig = require('./config/multer');
 
 const Post = require('./models/Post');
 
+routes.get('/', (req, res) => {
+    res.json({
+        message: `Esta é uma API para armazenamento de imagens com um tamanho de no máximo 2 mb`,
+        routes: '/posts'
+    })
+});
+
 routes.get('/posts', async (req, res) => {
     const posts = await Post.find().lean();
     return res.json(posts);
