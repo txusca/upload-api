@@ -31,9 +31,7 @@ router.post('/', multer(multerConfig).single('file'), async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-    const post = await Post.findById(req.params.id).lean();
-
-    await post.remove();
+    const response = await Post.remove({ _id: req.params.id });
 
     return res.send();
 });
