@@ -30,4 +30,12 @@ router.post('/', multer(multerConfig).single('file'), async (req, res) => {
     return res.json({ post: post, id: req.userId });
 });
 
+routes.delete('/:id', async (req, res) => {
+    const post = await Post.findById(req.params.id).lean();
+
+    await post.remove();
+
+    return res.send();
+});
+
 module.exports = router;
