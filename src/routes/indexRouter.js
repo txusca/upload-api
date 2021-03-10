@@ -13,7 +13,7 @@ function generateToken(params = {}) {
 router.get('/', (req, res) => {
     res.json({
         message: `Esta é uma API para armazenamento de imagens com um tamanho de no máximo 2 mb`,
-        routes: ['/login',
+        routes: ['/login/',
             '/posts',
             '/users']
     })
