@@ -4,7 +4,14 @@ const crypto = require('crypto');
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk')
 
+/**
+ * Foi utilizado o Storage Amazon s3 pela praticidade com a biblioteca multer.
+ * Já que contem uma biblioteca especifica para o funcionamento do multer
+ * sem ter que fazer configurações separadas.
+ */
 
+
+// Configuração do tipo de Storage utilizado, local para armazenamento em disco e s3 para armazenar no Storage S3.
 const storageType = {
     local: multer.diskStorage({
         destination: (req, file, cb) => {
